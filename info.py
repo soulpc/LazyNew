@@ -104,6 +104,9 @@ FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).
 
 MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "True")), True)
 
+WELCOM_PIC = environ.get("WELCOM_PIC", "https://telegra.ph/file/752902d61af6aade198b6.jpg")
+WELCOM_TEXT = environ.get("WELCOM_TEXT", "<b>ʜᴇy {user} ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {chat}</b>\n\n<b>നിങ്ങൾക് ഇവിടെ ഏത് സിനിമയും റിക്വസ്റ്റ് ചെയ്യാം. ശെരിയായ സ്പെല്ലിങ് ആയാൽ മാത്രമേ നിങ്ങൾക് സിനിമ ലഭിക്കുകയൊള്ളു</b>\n\n<b>yᴏᴜ ᴄᴀɴ ʀᴇqᴜᴇꜱᴛ ᴀɴy ᴍᴏᴠɪᴇ ʜᴇʀᴇ. yᴏᴜ ᴡɪʟʟ ɢᴇᴛ ᴛʜᴇ ᴍᴏᴠɪᴇ ᴏɴʟy ɪꜰ ɪᴛ ɪꜱ ꜱᴩᴇʟʟᴇᴅ ᴄᴏʀʀᴇᴄᴛʟy</b>\n<b>ᴍᴏᴠɪᴇ ʀᴇqᴜᴇꜱᴛ ᴇxᴀᴍᴩʟᴇ</b>\n<b>🎪 ᴠɪᴋʀᴀᴍ 2022</b>\n<b>ꜱᴇʀɪᴇꜱ ʀᴇqᴜᴇꜱᴛ ᴇxᴀᴍᴩʟᴇ</b>\n<b>🎪 ᴍᴏɴᴇy ʜᴇɪꜱᴛ S01E01</b>")
+
 PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "True")), False)
 
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "False")), False)
