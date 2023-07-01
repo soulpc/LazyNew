@@ -40,14 +40,12 @@ async def handle_message(client, message):
         db.reports.insert_one(report)
 
         # Update the loading message with the filled animation
-        # Update the loading message with the filled animation
-     for i in range(3):
-       filled = "●" * (i + 1)
-       unfilled = "○" * (3 - (i + 1))
-       loading_bar = f"Report sending {filled}{unfilled}"
-       await loading_message.edit_text(loading_bar)
-       time.sleep(0.5)
-
+        for i in range(3):
+            filled = "●" * (i + 1)
+            unfilled = "○" * (3 - (i + 1))
+            loading_bar = f"Report sending {filled}{unfilled}"
+            await loading_message.edit_text(loading_bar)
+            time.sleep(0.5)
 
         await loading_message.delete()
 
