@@ -3,19 +3,29 @@ import datetime
 import pytz
 import asyncio
 
+# Define your user ID
+your_user_id = 1653535224  # Replace with your actual user ID
+
 @Client.on_message((filters.command(["report"]) | filters.regex("@admins") | filters.regex("@admin")) & filters.group)
 async def notify_admin(bot, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
     administrators = []
     chat_member = await bot.get_chat_member(chat_id=chat_id, user_id=user_id)
+
     if (
             chat_member.status == enums.ChatMemberStatus.ADMINISTRATOR
             or chat_member.status == enums.ChatMemberStatus.OWNER
     ):
         return await message.delete()
+
     async for m in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
         administrators.append(m)
+
+    # Add yourself as an administrator
+    if user_id == your_user_id:
+        administrators.append(chat_member)
+
     full_name = message.from_user.first_name + " " + message.from_user.last_name if message.from_user.last_name else message.from_user.first_name
     
     ist = pytz.timezone("Asia/Kolkata")
@@ -23,7 +33,7 @@ async def notify_admin(bot, message):
     report_date = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%d-%B-%Y")
     report_day = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%A")
 
-    reply_message = f"<b><i>✅ Rᴇᴩᴏʀᴛ Sᴇɴᴅ Sᴜᴄᴄᴇꜱꜱꜰᴜʟʟ ✅</i></b>\n\n"
+    reply_message = f"<b><i>✅ Rᴇᴩᴏʀᴛ Sᴇɴᴅ Sᴜᴄᴄᴇꜱꜰᴜʟʟ ✅</i></b>\n\n"
     reply_message += f"<b>👤 Rᴇᴘᴏʀᴛᴇᴅ ᴜsᴇʀ: {message.from_user.username}\n"
     reply_message += f"🆔 Rᴇᴘᴏʀᴛᴇᴅ ᴜsᴇʀ ɪᴅ: {message.from_user.id}\n"
     reply_message += f"📝 Rᴇᴘᴏʀᴛ ᴛʀᴀᴄᴋ ɪᴅ: [#TG8836467]({message.link})\n\n"
