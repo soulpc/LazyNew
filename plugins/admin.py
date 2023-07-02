@@ -46,3 +46,5 @@ async def notify_admin(bot, message):
                     disable_web_page_preview=True,
                     parse_mode="html"
                 )
+        except:
+            pass
