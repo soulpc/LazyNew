@@ -8,7 +8,7 @@ def handle_message(client, message):
         group_id = message.chat.id
         track_id = f"#MB{group_id}"
         
-        if app.get_chat_member(group_id, sender_id).status == "creator":
+        if client.get_chat_member(group_id, sender_id).status == "creator":
             track_id += "1"
         else:
             track_id += "2"
