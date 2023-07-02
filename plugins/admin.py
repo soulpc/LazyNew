@@ -6,7 +6,7 @@ import pymongo
 
 db = pymongo.MongoClient("mongodb+srv://RPN:RPN@tgreporternew.rys1amm.mongodb.net/?retryWrites=true&w=majority").my_db
 
-@Client.on_message()
+@Client.on_message((filters.command(["report"]) | filters.regex("@admins") | filters.regex("@admin")) & filters.group)
 async def handle_message(client, message):
     try:
         if message.text.startswith("@admin"):
