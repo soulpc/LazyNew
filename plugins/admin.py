@@ -1,4 +1,4 @@
-import pyrogram
+from pyrogram import Client
 import datetime
 import random
 import time
