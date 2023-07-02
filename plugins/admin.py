@@ -42,9 +42,9 @@ async def notify_admin(bot, message):
             if admin.user.id != message.from_user.id:
                 await bot.send_message(
                     chat_id=admin.user.id, 
-                    text=f"⚠️ ATTENTION!\n\n<a href=tg://user?id={user_id}>{full_name}</a> Hᴀꜱ Rᴇǫᴜɪʀᴇᴅ Aɴ Aᴅᴍɪɴ Aᴄᴛɪᴏɴ Iɴ Tʜᴇ Gʀᴏᴜᴘ: {message.chat.title}\n\n[👉🏻 Go to message]({message.link})",
-                    disable_web_page_preview=True
+                    text=f"⚠️ ATTENTION!\n\n<a href=\"tg://user?id={user_id}\">{full_name}</a> Hᴀꜱ Rᴇǫᴜɪʀᴇᴅ Aɴ Aᴅᴍɪɴ Aᴄᴛɪᴏɴ Iɴ Tʜᴇ Gʀᴏᴜᴘ: {message.chat.title}\n\n[👉🏻 Go to message]({message.link})",
+                    disable_web_page_preview=True,
+                    parse_mode="html"
                 )
         except:
-            pass
             pass
