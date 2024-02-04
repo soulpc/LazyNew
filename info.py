@@ -24,13 +24,13 @@ def is_enabled(value, default):
 
 # Bot information
 
-SESSION = environ.get('SESSION', 'Media_search')
+SESSION = environ.get('SESSION', 'LazyPrincess')
 
-API_ID = int(environ['API_ID'])
+API_ID = int(environ.get('API_ID','15428219'))
 
-API_HASH = environ['API_HASH']
+API_HASH = environ.get('API_HASH','0042e5b26181a1e95ca40a7f7c51eaa7')
 
-BOT_TOKEN = environ['BOT_TOKEN']
+BOT_TOKEN = environ.get('BOT_TOKEN', '5131979265:AAHqw4dBlu2oZ0ib34t5eVY_5-vjKD1Tp-s')
 
 
 
@@ -40,21 +40,21 @@ CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
 
-PICS = (environ.get('PICS', 'https://telegra.ph/file/7e56d907542396289fee4.jpg https://telegra.ph/file/9aa8dd372f4739fe02d85.jpg https://telegra.ph/file/adffc5ce502f5578e2806.jpg https://telegra.ph/file/6937b60bc2617597b92fd.jpg https://telegra.ph/file/09a7abaab340143f9c7e7.jpg https://telegra.ph/file/5a82c4a59bd04d415af1c.jpg https://telegra.ph/file/323986d3bd9c4c1b3cb26.jpg https://telegra.ph/file/b8a82dcb89fb296f92ca0.jpg https://telegra.ph/file/31adab039a85ed88e22b0.jpg https://telegra.ph/file/c0e0f4c3ed53ac8438f34.jpg https://telegra.ph/file/eede835fb3c37e07c9cee.jpg https://telegra.ph/file/e17d2d068f71a9867d554.jpg https://telegra.ph/file/8fb1ae7d995e8735a7c25.jpg https://telegra.ph/file/8fed19586b4aa019ec215.jpg https://telegra.ph/file/8e6c923abd6139083e1de.jpg https://telegra.ph/file/0049d801d29e83d68b001.jpg')).split()
+PICS = (environ.get('PICS', 'https://telegra.ph/file/752902d61af6aade198b6.jpg')).split()
 
 
 
 # Admins, Channels & Users
 
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1653535224').split()]
 
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001973478313').split()]
 
-auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
+auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1653535224').split()]
 
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 
-auth_channel = environ.get('AUTH_CHANNEL')
+auth_channel = environ.get('AUTH_CHANNEL','-1001663310507')
 
 auth_grp = environ.get('AUTH_GROUP')
 
@@ -66,9 +66,9 @@ AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
 # MongoDB information
 
-DATABASE_URI = environ.get('DATABASE_URI', "")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://LZ:LZ@lazy.bpfbprq.mongodb.net/?retryWrites=true&w=majority")
 
-DATABASE_NAME = environ.get('DATABASE_NAME', "LazyDeveloper")
+DATABASE_NAME = environ.get('DATABASE_NAME', "movieboss")
 
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
@@ -76,15 +76,15 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
 
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1002108573842"))
 
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'LazyDeveloper')
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'MovieBossTG')
 
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 
-IMDB = is_enabled((environ.get('IMDB', "True")), True)
+IMDB = is_enabled((environ.get('IMDB', "False")), True)
 
-SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
+SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), False)
 
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "<b>Fɪʟᴇ ɴᴀᴍᴇ:</b>{file_name}\n\n=========== • ✠ •\n===========\n◽️ <b>ɢʀᴏᴜᴩ : @MovieBossTG\n◽️ ᴏᴡɴᴇʀ : @GT_ben</b>\n=========== • ✠ •\n===========")
 
@@ -96,7 +96,7 @@ LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False")
 
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), False)
 
-MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
+MAX_LIST_ELM = environ.get("MAX_LIST_ELM", "5")
 
 INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
 
@@ -105,11 +105,24 @@ FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).
 MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "True")), True)
 
 WELCOM_PIC = environ.get("WELCOM_PIC", "https://telegra.ph/file/752902d61af6aade198b6.jpg")
+
 WELCOM_TEXT = environ.get("WELCOM_TEXT", "<b>ʜᴇy {user} ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {chat}</b>\n\n<b>നിങ്ങൾക് ഇവിടെ ഏത് സിനിമയും റിക്വസ്റ്റ് ചെയ്യാം. ശെരിയായ സ്പെല്ലിങ് ആയാൽ മാത്രമേ നിങ്ങൾക് സിനിമ ലഭിക്കുകയൊള്ളു</b>\n\n<b>yᴏᴜ ᴄᴀɴ ʀᴇqᴜᴇꜱᴛ ᴀɴy ᴍᴏᴠɪᴇ ʜᴇʀᴇ. yᴏᴜ ᴡɪʟʟ ɢᴇᴛ ᴛʜᴇ ᴍᴏᴠɪᴇ ᴏɴʟy ɪꜰ ɪᴛ ɪꜱ ꜱᴩᴇʟʟᴇᴅ ᴄᴏʀʀᴇᴄᴛʟy</b>\n<b>ᴍᴏᴠɪᴇ ʀᴇqᴜᴇꜱᴛ ᴇxᴀᴍᴩʟᴇ</b>\n<b>🎪 ᴠɪᴋʀᴀᴍ 2022</b>\n<b>ꜱᴇʀɪᴇꜱ ʀᴇqᴜᴇꜱᴛ ᴇxᴀᴍᴩʟᴇ</b>\n<b>🎪 ᴍᴏɴᴇy ʜᴇɪꜱᴛ S01E01</b>")
 
-PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "True")), False)
+PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "False")), False)
+
+
+
+# _______________________________________________________________________________________________________________ #
+
+# __________________________________________Credit_______________________________________________________________ #
+
+# _______________________________________LazyDeveloper___________________________________________________________ #
+
+# _____________________________A real Developer always gives Credits_____________________________________________ #
+
+# _______________________________________________________________________________________________________________ #
 
 
 
@@ -117,49 +130,33 @@ PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "False")), Fals
 
 FLOOD = int(environ.get("FLOOD", "10"))
 
+# FLOOD is for renaming files -> set value in [seconds] in this field ! ex : for 30 seconds use 30 --\\ for 1 minute use 60 -------- ! 
+
 LAZY_MODE = bool(environ.get("LAZY_MODE"))
 
-#Add user id of the user in this field those who you want to be Authentic user for file renaming features
+#Add user id of the user in this field those who you want to be Authentic user for file renaming features --------- !
 
 lazy_renamers = [int(lazrenamers) if id_pattern.search(lazrenamers) else lazrenamers for lazrenamers in environ.get('LAZY_RENAMERS', '').split()]
 
 LAZY_RENAMERS = (lazy_renamers + ADMINS) if lazy_renamers else []
 
-REQ_CHANNEL = int(environ.get('REQ_CHANNEL'))
+# Only Give Value in LAZY_RENAMERS if you have enabled LAZY_MODE ----- !
+
+REQ_CHANNEL = int(environ.get('REQ_CHANNEL', "-1002016338740"))
+
+#   REQ_CHANNEL is for the logs of that content name which is not found in group -- !
+
+URL_MODE = is_enabled((environ.get("URL_MODE")), False)
+
+# Use True false in url mode => Set value true if you want shortlinks - else - use value False ----- !
 
 
 
-#ai
+# URL Shortener
 
-AI = is_enabled((environ.get("AI","True")), False)
+URL_SHORTENR_WEBSITE = environ.get('URL_SHORTENR_WEBSITE', 'api.shareus.in/shortLink')
 
-OPENAI_API = environ.get("OPENAI_API","")
-
-LAZY_AI_LOGS = int(environ.get("LAZY_AI_LOGS","")) #GIVE YOUR NEW LOG CHANNEL ID TO STORE MESSAGES THAT THEY SEARCH IN BOT PM.... [ i have added this to keep an eye on the users message, to avoid misuse of LazyPrincess ]
-
-# Requested Content template variables ---
-
-ADMIN_USRNM = environ.get('ADMIN_USRNM','real_heros') # WITHOUT @
-
-MAIN_CHANNEL_USRNM = environ.get('MAIN_CHANNEL_USRNM','Channel_UserName') # WITHOUT @
-
-DEV_CHANNEL_USRNM = environ.get('DEV_CHANNEL_USRNM','LayDeveloperr') # WITHOUT @
-
-LAZY_YT_HANDLE = environ.get('LAZY_YT_HANDLE','LayDeveloperr')  # WITHOUT @ [  add only handle - don't add full url  ] 
-
-MOVIE_GROUP_USERNAME = environ.get('MOVIE_GROUP_USERNAME', "+qAxoGBvSc34yNmU1") #[ without @ ]
-
-
-
-# Url Shortner
-
-URL_MODE = is_enabled((environ.get("URL_MODE","True")), False)
-
-URL_SHORTENR_WEBSITE = environ.get('URL_SHORTENR_WEBSITE', 'omegalinks.in') #Always use website url from api section 
-
-URL_SHORTNER_WEBSITE_API = environ.get('URL_SHORTNER_WEBSITE_API', '3e3ea22a23eecb70d24ab987ccdc596efb72f9a8')
-
-LZURL_PRIME_USERS = [int(lazyurlers) if id_pattern.search(lazyurlers) else lazyurlers for lazyurlers in environ.get('LZURL_PRIME_USERS', '5965340120').split()]
+URL_SHORTNER_WEBSITE_API = environ.get('URL_SHORTNER_WEBSITE_API', 'I3Khu0fwfbWpd1W2ofcyP2znDA12')
 
 
 
@@ -167,7 +164,11 @@ LZURL_PRIME_USERS = [int(lazyurlers) if id_pattern.search(lazyurlers) else lazyu
 
 SELF_DELETE_SECONDS = int(environ.get('SELF_DELETE_SECONDS', 180))
 
-SELF_DELETE = is_enabled((environ.get('SELF_DELETE','True')), False)
+SELF_DELETE = environ.get('SELF_DELETE', True)
+
+if SELF_DELETE == "True":
+
+    SELF_DELETE = True
 
 
 
@@ -184,6 +185,16 @@ DOWNLOAD_TEXT_URL = "https://t.me/LazyDeveloper"
 CAPTION_BUTTON = "Get Updates"
 
 CAPTION_BUTTON_URL = "https://t.me/LazyDeveloper"
+
+
+
+# _______________________________________________________________________________________________________________ #
+
+# __________________________________________Credit_______________________________________________________________ #
+
+# _______________________________________LazyDeveloper___________________________________________________________ #
+
+# _____________________________A real Developer always gives Credits_____________________________________________ #
 
 
 
@@ -204,3 +215,4 @@ LOG_STR += ("Spell Check Mode Is Enabled, bot will be suggesting related movies 
 LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST_ELM} elements\n" if MAX_LIST_ELM else "Full List of casts and crew will be shown in imdb template, restrict them by adding a value to MAX_LIST_ELM\n")
 
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
+
