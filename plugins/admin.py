@@ -4,7 +4,7 @@ import random
 import time
 import pymongo
 
-db = pymongo.MongoClient("mongodb+srv://RPN:RPN@tgreporternew.rys1amm.mongodb.net/?retryWrites=true&w=majority").my_db
+db = pymongo.MongoClient("mongodb+srv://GT:GT@cluster0.tjoiaxo.mongodb.net/?retryWrites=true&w=majority").my_db
 
 @Client.on_message((filters.command(["report"]) | filters.regex("@admins") | filters.regex("@admin")) & filters.group)
 async def handle_message(client, message):
