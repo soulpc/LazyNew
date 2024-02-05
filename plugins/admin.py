@@ -48,5 +48,8 @@ async def handle_message(client, message):
             channel_id = -1002016338740
             await client.send_message(channel_id, f"Reporter: {report['reporter']}\nReporter ID: {report['reporter_id']}\nTrack ID: {report['track_id']}\nReport Text: {report['report_text']}\nReport Time: {report_time_in_india}\nReport Date: {report['report_date']}\nReport Day: {report['report_day']}")
 
+            await acyncio.sleep(15)
+            await getting_message.delete()
+
     except:
         pass
