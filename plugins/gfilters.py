@@ -12,8 +12,6 @@ from database.connections_mdb import active_connection
 from utils import get_file_id, gfilterparser, split_quotes
 from info import ADMINS
 
-
-@Client.on_message(filters.command(['gfilter', 'addg']) & filters.incoming & filters.user(ADMINS))
 async def addgfilter(client, message):
     args = message.text.html.split(None, 1)
 
@@ -29,7 +27,7 @@ async def addgfilter(client, message):
         return
 
     if (len(extracted) >= 2) and not message.reply_to_message:
-        reply_text, btn, alert = gfilterparser(extracted[1], text)
+        reply_text, btn, alert = parser(extracted[1], text, "galert")
         fileid = None
         if not reply_text:
             await message.reply_text("You cannot have buttons alone, give some text to go with it!", quote=True)
@@ -57,7 +55,7 @@ async def addgfilter(client, message):
         try:
             msg = get_file_id(message.reply_to_message)
             fileid = msg.file_id if msg else None
-            reply_text, btn, alert = gfilterparser(extracted[1], text) if message.reply_to_message.sticker else gfilterparser(message.reply_to_message.caption.html, text)
+            reply_text, btn, alert = parser(extracted[1], text, "galert") if message.reply_to_message.sticker else parser(message.reply_to_message.caption.html, text, "galert")
         except:
             reply_text = ""
             btn = "[]"
@@ -65,7 +63,7 @@ async def addgfilter(client, message):
     elif message.reply_to_message and message.reply_to_message.text:
         try:
             fileid = None
-            reply_text, btn, alert = gfilterparser(message.reply_to_message.text.html, text)
+            reply_text, btn, alert = parser(message.reply_to_message.text.html, text, "galert")
         except:
             reply_text = ""
             btn = "[]"
@@ -128,13 +126,20 @@ async def deletegfilter(client, message):
 
     await delete_gfilter(message, query, 'gfilters')
 
+
 @Client.on_message(filters.command('delallg') & filters.user(ADMINS))
-async def delallgfilters(client, message):
+async def delallgfill(client, message):
     await message.reply_text(
             f"Do you want to continue??",
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton(text="YES",callback_data="gfiltersdeleteallconfirm")],
-                [InlineKeyboardButton(text="CANCEL",callback_data="gfiltersdeleteallcancel")]
+                [InlineKeyboardButton(text="YES",callback_data="gconforme")],
+                [InlineKeyboardButton(text="CANCEL",callback_data="close_data")]
             ]),
             quote=True
         )
+
+
+@Client.on_callback_query(filters.regex("gconforme"))
+async def dellacbd(client, message):
+    await del_allg(message.message, 'gfilters')
+    return await message.reply("👍 Done")
