@@ -112,14 +112,6 @@ REQ_CHANNEL = int(environ.get('REQ_CHANNEL', "-1002016338740"))
 
 #   REQ_CHANNEL is for the logs of that content name which is not found in group -- !
 
-URL_MODE = is_enabled((environ.get("URL_MODE")), False)
-
-# Use True false in url mode => Set value true if you want shortlinks - else - use value False ----- !
-
-# ai
-
-AI = is_enabled((environ.get("AI", "False")), False)
-
 OPENAI_API = environ.get("OPENAI_API","")
 
 LAZY_AI_LOGS = int(environ.get("LAZY_AI_LOGS","")) #GIVE YOUR NEW LOG CHANNEL ID TO STORE MESSAGES THAT THEY SEARCH IN BOT PM.... [ i have added this to keep an eye on the users message, to avoid misuse of LazyPrincess ]
