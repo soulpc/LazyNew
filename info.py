@@ -64,10 +64,6 @@ LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1002108573842"))
 
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'MovieBossTG')
 
-IMDB = is_enabled((environ.get('IMDB', "False")), True)
-
-SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), False)
-
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "<b>Fɪʟᴇ ɴᴀᴍᴇ:</b>{file_name}\n\n=========== • ✠ •\n===========\n◽️ <b>ɢʀᴏᴜᴩ : @MovieBossTG\n◽️ ᴏᴡɴᴇʀ : @GT_ben</b>\n=========== • ✠ •\n===========")
 
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", "<b>{file_caption}</b>")
