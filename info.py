@@ -6,14 +6,6 @@ from os import environ
 
 id_pattern = re.compile(r'^.\d+$')
 
-def is_enabled(value, default):
-        
-    else:
-
-        return default
-
-
-
 # Bot information
 
 SESSION = environ.get('SESSION', 'LazyPrincess')
